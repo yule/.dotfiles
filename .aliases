@@ -1,0 +1,23 @@
+
+# aliases
+alias ll='ls -ahlF'
+alias la='ls -Ah'
+alias l='ls -Flah'
+alias c='cd'
+alias d='cd ..'
+alias x='exit'
+alias 7="svn"
+alias 7up="svn up"
+alias 7st="svn st -u"
+alias ss="script/server"
+alias sc="script/console"
+alias rs="rails server"
+alias rc="rails console"
+alias rr="rake routes"
+alias sg="script/generate" 
+alias n="nano"
+alias uglify="uglifyjs -o application.min.js application.js"
+alias password="ha-gen -a"
+alias sql="psql -h pgsqlhost -U"
+alias restart="touch tmp/restart.txt"
+
