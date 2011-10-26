@@ -7,4 +7,8 @@ set expandtab
 
 set autoindent
 
-colorscheme slate
+set nowrap
+ 
+:map <F2> :set autoindent! <CR>
+ 
+colorscheme zellner
