@@ -20,4 +20,6 @@ alias uglify="uglifyjs -o application.min.js application.js"
 alias password="ha-gen -a"
 alias sql="psql -h pgsqlhost -U"
 alias restart="touch tmp/restart.txt"
-
+alias push="git push"
+alias pull="git pull origin master"
+alias commit="git commit -am"
