@@ -92,4 +92,19 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+#bundle exec automatically when gemfile exists
+function be {
+  if [ -a Gemfile ]; then
+    bundle exec $*
+  else
+    $*
+  fi
+}
+
+#can add more here...
+alias rake="be rake"
+
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+rvm_project_rvmrc=1
