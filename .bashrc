@@ -59,7 +59,8 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    # NAH
+    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -102,9 +103,16 @@ function be {
   fi
 }
 
+#name a console whatever you want...
+function name {
+  PROMPT_COMMAND="echo -ne \"\033]0;${1}\007\""
+}
+
+
 #can add more here...
 alias rake="be rake"
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 rvm_project_rvmrc=1
+rvm use 1.8.7
