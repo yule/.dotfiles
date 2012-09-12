@@ -108,6 +108,18 @@ function name {
   PROMPT_COMMAND="echo -ne \"\033]0;${1}\007\""
 }
 
+function yy {
+  CMD=$(echo $* | sed 's/[0-9]* //')
+  echo $CMD > ~/.gittypos
+  $CMD 2>>~/.gittypos
+  MEANT=$(sed '$!d;' ~/.gittypos)
+  PLACE=$(sed -n 1p ~/.gittypos)
+  COMMAND=$(echo $PLACE | cut -d' ' -f1)
+  PARAMS=$(echo $PLACE | cut -d' ' -f3-)
+  TO_RUN=$(echo $COMMAND $MEANT $PARAMS)
+  $TO_RUN
+}
+alias y="LAST=\$(history |tail -n2 |head -n1); yy \$LAST"
 
 #can add more here...
 alias rake="be rake"
