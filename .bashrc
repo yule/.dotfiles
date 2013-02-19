@@ -121,7 +121,6 @@ function yy {
 }
 alias y="LAST=\$(history |tail -n2 |head -n1); yy \$LAST"
 
-
 #can add more here...
 alias rake="be rake"
 alias guard="be guard"
