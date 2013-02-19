@@ -108,11 +108,37 @@ function name {
   PROMPT_COMMAND="echo -ne \"\033]0;${1}\007\""
 }
 
+function yy {
+  CMD=$(echo $* | sed 's/[0-9]* //')
+  echo "$CMD" > ~/.gittypos
+  $CMD 2>>~/.gittypos
+  MEANT=$(sed '$!d;' ~/.gittypos)
+  PLACE=$(sed -n 1p ~/.gittypos)
+  COMMAND=$(echo $PLACE | cut -d' ' -f1)
+  PARAMS=$(echo $PLACE | cut -d' ' -f3-)
+  TO_RUN=$(echo $COMMAND $MEANT $PARAMS)
+  $TO_RUN
+}
+alias y="LAST=\$(history |tail -n2 |head -n1); yy \$LAST"
+
 
 #can add more here...
 alias rake="be rake"
-
-
+alias guard="be guard"
+. ~/nvm/nvm.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 rvm_project_rvmrc=1
-rvm use 1.8.7
+#rvm use 1.8.7 #don't need this as most projects are specific
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bin/pjs/bin #Add phantomjs
+PATH=$PATH:$HOME/mpg123/bin #Add mpg123
+
+# {{{
+# Node Completion - Auto-generated, do not touch.
+shopt -s progcomp
+for f in $(command ls ~/.node-completion); do
+  f="$HOME/.node-completion/$f"
+  test -f "$f" && . "$f"
+done
+# }}}

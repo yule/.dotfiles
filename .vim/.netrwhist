@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/AHC/paul.brennan/workspace/web/vodafone_website/app/views/modeller'
-let g:netrw_dirhist_2='/home/AHC/paul.brennan/workspace/web/modeller_website'
-let g:netrw_dirhist_3='/home/AHC/paul.brennan/liferay/plugins/themes/ahc-lapw-theme/docroot'
