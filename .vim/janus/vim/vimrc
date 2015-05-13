@@ -36,28 +36,3 @@ exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
 call janus#load_pathogen()
 
 " .vimrc.after is loaded after the plugins have loaded
-syntax on
-set number 
-
-syntax enable
-set showcmd
-set shiftwidth=2
-set tabstop=2
-set expandtab
-set autoindent
-
-colorscheme molokai
-set background=dark
-set nowrap
-set iskeyword+=-
-
-inoremap <Nul> <C-n>
-:map <F2> :set autoindent! <CR>
-:map <F3> :set number! <CR>
-:map <F4> :NERDTree <CR>
-:map <F5> :set noexpandtab<CR>
-:map <tab> <C-W>w
-:map <S-tab> <C-W>h
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-

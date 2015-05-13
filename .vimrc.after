@@ -1,0 +1,34 @@
+syntax on
+
+syntax enable
+set showcmd
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set autoindent
+
+colorscheme aqua
+set background=dark
+set nowrap
+set iskeyword+=-
+
+inoremap <Nul> <C-n>
+:map <F2> :set autoindent! <CR>
+:map <F3> :set number! <CR>
+:map <F4> :NERDTree <CR>
+:map <F5> :set noexpandtab<CR>
+:map <F6> :set relativenumber! <CR>
+:map <F7> :set wrap! <CR>
+:map <F8> :set paste! <CR>
+:map <tab> <C-W>w
+:map <S-tab> <C-W>h
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+let g:NERDTreeDirArrows=0
+let g:NERDTreeWinPos="right"
+let g:NERDTreeWinSize=28
+highlight Pmenu ctermbg=53 ctermfg=23
+highlight PmenuSel ctermfg=1 ctermbg=7
+
+set relativenumber
+autocmd FileType * setlocal relativenumber

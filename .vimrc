@@ -1,23 +1,38 @@
-syntax on
-set number
+""
+"" Janus setup
+""
 
-syntax enable
-set showcmd
-set shiftwidth=2
-set tabstop=2
-set expandtab
+" Define paths
+let g:janus_path = escape(fnamemodify(resolve(expand("<sfile>:p")), ":h"), ' ')
+let g:janus_vim_path = escape(fnamemodify(resolve(expand("<sfile>:p" . "vim")), ":h"), ' ')
+let g:janus_custom_path = expand("~/.janus")
 
-set autoindent 
+" Source janus's core
+exe 'source ' . g:janus_vim_path . '/core/before/plugin/janus.vim'
 
-set nowrap
+" You should note that groups will be processed by Pathogen in reverse
+" order they were added.
+call janus#add_group("tools")
+call janus#add_group("langs")
+call janus#add_group("colors")
 
-:map <F2> :set autoindent! <CR>
-:map <F3> :set number! <CR>
-:map <F4> :NERDTree <CR>
-:map <tab> <C-W>w
-:map <S-tab> <C-W>h
-colorscheme zellner
+""
+"" Customisations
+""
+
+if filereadable(expand("~/.vimrc.before"))
+  source ~/.vimrc.before
+endif
 
 
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" Disable plugins prior to loading pathogen
+exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
+
+""
+"" Pathogen setup
+""
+
+" Load all groups, custom dir, and janus core
+call janus#load_pathogen()
+
+" .vimrc.after is loaded after the plugins have loaded
